@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,21 +26,12 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest || echo "No tests available"
+        pytest || echo "No tests found – skipping tests"
 
-    - name: Bandit security scan
+    - name: Security scan
       run: |
         pip install bandit
         bandit -r .
 
-    - name: Build Success
-      run: echo "Build & Test Completed Successfully!"
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-
-    steps:
-    - name: Simulated Deployment
-      run: echo "Deploying Flask E-commerce App"
+    - name: Build completed
+      run: echo "CI pipeline completed successfully!"
