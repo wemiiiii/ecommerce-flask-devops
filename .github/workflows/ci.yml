@@ -27,7 +27,7 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest || echo "No tests found – skipping tests"
+        python -m pytest || echo "No tests found – skipping tests"
 
     - name: Security scan
       run: |
