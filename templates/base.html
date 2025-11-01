@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title if title else "Flask E-Shop" }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">Flask<span>Shop</span></h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/products">Products</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 FlaskShop | All Rights Reserved</p>
+  </footer>
+</body>
+</html>
